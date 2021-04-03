@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 操作変数法 | サブゼミ資料</title>
+  <meta name="description" content="Chapter 3 操作変数法 | サブゼミ資料" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 操作変数法 | サブゼミ資料" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 操作変数法 | サブゼミ資料" />
+  
+  
+  
+
+<meta name="author" content="Kubozemi" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="OLS.html"/>
+<link rel="next" href="DC.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">book title.</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="Introduction.html"><a href="Introduction.html"><i class="fa fa-check"></i><b>1</b> イントロダクション</a><ul>
+<li class="chapter" data-level="1.1" data-path="Introduction.html"><a href="Introduction.html#環境構築"><i class="fa fa-check"></i><b>1.1</b> 環境構築</a></li>
+<li class="chapter" data-level="1.2" data-path="Introduction.html"><a href="Introduction.html#基本的な計算"><i class="fa fa-check"></i><b>1.2</b> 基本的な計算</a></li>
+<li class="chapter" data-level="1.3" data-path="Introduction.html"><a href="Introduction.html#ベクトル"><i class="fa fa-check"></i><b>1.3</b> ベクトル</a></li>
+<li class="chapter" data-level="1.4" data-path="Introduction.html"><a href="Introduction.html#データフレーム"><i class="fa fa-check"></i><b>1.4</b> データフレーム</a></li>
+<li class="chapter" data-level="1.5" data-path="Introduction.html"><a href="Introduction.html#データの型"><i class="fa fa-check"></i><b>1.5</b> データの型</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="Introduction.html"><a href="Introduction.html#数値"><i class="fa fa-check"></i><b>1.5.1</b> 数値</a></li>
+<li class="chapter" data-level="1.5.2" data-path="Introduction.html"><a href="Introduction.html#文字"><i class="fa fa-check"></i><b>1.5.2</b> 文字</a></li>
+<li class="chapter" data-level="1.5.3" data-path="Introduction.html"><a href="Introduction.html#論理演算子"><i class="fa fa-check"></i><b>1.5.3</b> 論理演算子</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="OLS.html"><a href="OLS.html"><i class="fa fa-check"></i><b>2</b> 回帰分析</a><ul>
+<li class="chapter" data-level="2.1" data-path="OLS.html"><a href="OLS.html#検証する仮説"><i class="fa fa-check"></i><b>2.1</b> 検証する仮説</a></li>
+<li class="chapter" data-level="2.2" data-path="OLS.html"><a href="OLS.html#データの読み込み"><i class="fa fa-check"></i><b>2.2</b> データの読み込み</a></li>
+<li class="chapter" data-level="2.3" data-path="OLS.html"><a href="OLS.html#データの把握"><i class="fa fa-check"></i><b>2.3</b> データの把握</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="OLS.html"><a href="OLS.html#ヒストグラム"><i class="fa fa-check"></i><b>2.3.1</b> ヒストグラム</a></li>
+<li class="chapter" data-level="2.3.2" data-path="OLS.html"><a href="OLS.html#散布図"><i class="fa fa-check"></i><b>2.3.2</b> 散布図</a></li>
+<li class="chapter" data-level="2.3.3" data-path="OLS.html"><a href="OLS.html#基本統計量"><i class="fa fa-check"></i><b>2.3.3</b> 基本統計量</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="OLS.html"><a href="OLS.html#単回帰分析"><i class="fa fa-check"></i><b>2.4</b> 単回帰分析</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="OLS.html"><a href="OLS.html#計量経済学モデル"><i class="fa fa-check"></i><b>2.4.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="2.4.2" data-path="OLS.html"><a href="OLS.html#推定"><i class="fa fa-check"></i><b>2.4.2</b> 推定</a></li>
+<li class="chapter" data-level="2.4.3" data-path="OLS.html"><a href="OLS.html#解釈"><i class="fa fa-check"></i><b>2.4.3</b> 解釈</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="OLS.html"><a href="OLS.html#重回帰分析"><i class="fa fa-check"></i><b>2.5</b> 重回帰分析</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="OLS.html"><a href="OLS.html#計量経済学モデル-1"><i class="fa fa-check"></i><b>2.5.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="2.5.2" data-path="OLS.html"><a href="OLS.html#データの加工-新規変数作成"><i class="fa fa-check"></i><b>2.5.2</b> データの加工: 新規変数作成</a></li>
+<li class="chapter" data-level="2.5.3" data-path="OLS.html"><a href="OLS.html#データの加工-欠損値の処理"><i class="fa fa-check"></i><b>2.5.3</b> データの加工: 欠損値の処理</a></li>
+<li class="chapter" data-level="2.5.4" data-path="OLS.html"><a href="OLS.html#データの加工-ダミー変数"><i class="fa fa-check"></i><b>2.5.4</b> データの加工: ダミー変数</a></li>
+<li class="chapter" data-level="2.5.5" data-path="OLS.html"><a href="OLS.html#推定-1"><i class="fa fa-check"></i><b>2.5.5</b> 推定</a></li>
+<li class="chapter" data-level="2.5.6" data-path="OLS.html"><a href="OLS.html#解釈-1"><i class="fa fa-check"></i><b>2.5.6</b> 解釈</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="OLS.html"><a href="OLS.html#捕捉多重共線性"><i class="fa fa-check"></i><b>2.6</b> 捕捉：多重共線性</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="OLS.html"><a href="OLS.html#相関係数"><i class="fa fa-check"></i><b>2.6.1</b> 相関係数</a></li>
+<li class="chapter" data-level="2.6.2" data-path="OLS.html"><a href="OLS.html#vif統計量"><i class="fa fa-check"></i><b>2.6.2</b> VIF統計量</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="IV.html"><a href="IV.html"><i class="fa fa-check"></i><b>3</b> 操作変数法</a><ul>
+<li class="chapter" data-level="3.1" data-path="IV.html"><a href="IV.html#検証する仮説-1"><i class="fa fa-check"></i><b>3.1</b> 検証する仮説</a></li>
+<li class="chapter" data-level="3.2" data-path="IV.html"><a href="IV.html#データの読み込み-1"><i class="fa fa-check"></i><b>3.2</b> データの読み込み</a></li>
+<li class="chapter" data-level="3.3" data-path="IV.html"><a href="IV.html#データの把握-1"><i class="fa fa-check"></i><b>3.3</b> データの把握</a></li>
+<li class="chapter" data-level="3.4" data-path="IV.html"><a href="IV.html#推定-2"><i class="fa fa-check"></i><b>3.4</b> 推定</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="IV.html"><a href="IV.html#計量経済学モデル-2"><i class="fa fa-check"></i><b>3.4.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="3.4.2" data-path="IV.html"><a href="IV.html#操作変数の確認"><i class="fa fa-check"></i><b>3.4.2</b> 操作変数の確認</a></li>
+<li class="chapter" data-level="3.4.3" data-path="IV.html"><a href="IV.html#推定-3"><i class="fa fa-check"></i><b>3.4.3</b> 推定</a></li>
+<li class="chapter" data-level="3.4.4" data-path="IV.html"><a href="IV.html#解釈-2"><i class="fa fa-check"></i><b>3.4.4</b> 解釈</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="IV.html"><a href="IV.html#推定結果の整理"><i class="fa fa-check"></i><b>3.5</b> 推定結果の整理</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DC.html"><a href="DC.html"><i class="fa fa-check"></i><b>4</b> 離散選択モデル</a><ul>
+<li class="chapter" data-level="4.1" data-path="DC.html"><a href="DC.html#検証する仮説-2"><i class="fa fa-check"></i><b>4.1</b> 検証する仮説</a></li>
+<li class="chapter" data-level="4.2" data-path="DC.html"><a href="DC.html#データの読み込み-2"><i class="fa fa-check"></i><b>4.2</b> データの読み込み</a></li>
+<li class="chapter" data-level="4.3" data-path="DC.html"><a href="DC.html#データの把握-2"><i class="fa fa-check"></i><b>4.3</b> データの把握</a></li>
+<li class="chapter" data-level="4.4" data-path="DC.html"><a href="DC.html#推定-4"><i class="fa fa-check"></i><b>4.4</b> 推定</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="DC.html"><a href="DC.html#計量経済学モデル-3"><i class="fa fa-check"></i><b>4.4.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="4.4.2" data-path="DC.html"><a href="DC.html#ロジットモデル"><i class="fa fa-check"></i><b>4.4.2</b> ロジットモデル</a></li>
+<li class="chapter" data-level="4.4.3" data-path="DC.html"><a href="DC.html#解釈-3"><i class="fa fa-check"></i><b>4.4.3</b> 解釈</a></li>
+<li class="chapter" data-level="4.4.4" data-path="DC.html"><a href="DC.html#プロビットモデル"><i class="fa fa-check"></i><b>4.4.4</b> プロビットモデル</a></li>
+<li class="chapter" data-level="4.4.5" data-path="DC.html"><a href="DC.html#解釈-4"><i class="fa fa-check"></i><b>4.4.5</b> 解釈</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="DC.html"><a href="DC.html#推定結果の整理-1"><i class="fa fa-check"></i><b>4.5</b> 推定結果の整理</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="PANEL.html"><a href="PANEL.html"><i class="fa fa-check"></i><b>5</b> パネルデータ分析</a><ul>
+<li class="chapter" data-level="5.1" data-path="PANEL.html"><a href="PANEL.html#検証する仮説-3"><i class="fa fa-check"></i><b>5.1</b> 検証する仮説</a></li>
+<li class="chapter" data-level="5.2" data-path="PANEL.html"><a href="PANEL.html#データの読み込み-3"><i class="fa fa-check"></i><b>5.2</b> データの読み込み</a></li>
+<li class="chapter" data-level="5.3" data-path="PANEL.html"><a href="PANEL.html#データの把握-3"><i class="fa fa-check"></i><b>5.3</b> データの把握</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="PANEL.html"><a href="PANEL.html#基本統計量-1"><i class="fa fa-check"></i><b>5.3.1</b> 基本統計量</a></li>
+<li class="chapter" data-level="5.3.2" data-path="PANEL.html"><a href="PANEL.html#データの可視化"><i class="fa fa-check"></i><b>5.3.2</b> データの可視化</a></li>
+<li class="chapter" data-level="5.3.3" data-path="PANEL.html"><a href="PANEL.html#対数変換"><i class="fa fa-check"></i><b>5.3.3</b> 対数変換</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="PANEL.html"><a href="PANEL.html#推定-5"><i class="fa fa-check"></i><b>5.4</b> 推定</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="PANEL.html"><a href="PANEL.html#計量経済学モデル-4"><i class="fa fa-check"></i><b>5.4.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="5.4.2" data-path="PANEL.html"><a href="PANEL.html#準備"><i class="fa fa-check"></i><b>5.4.2</b> 準備</a></li>
+<li class="chapter" data-level="5.4.3" data-path="PANEL.html"><a href="PANEL.html#変量効果モデル"><i class="fa fa-check"></i><b>5.4.3</b> 変量効果モデル</a></li>
+<li class="chapter" data-level="5.4.4" data-path="PANEL.html"><a href="PANEL.html#固定効果モデル"><i class="fa fa-check"></i><b>5.4.4</b> 固定効果モデル</a></li>
+<li class="chapter" data-level="5.4.5" data-path="PANEL.html"><a href="PANEL.html#ハウスマン検定"><i class="fa fa-check"></i><b>5.4.5</b> ハウスマン検定</a></li>
+<li class="chapter" data-level="5.4.6" data-path="PANEL.html"><a href="PANEL.html#固定効果時間効果"><i class="fa fa-check"></i><b>5.4.6</b> 固定効果×時間効果</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="PANEL.html"><a href="PANEL.html#推定結果の整理-2"><i class="fa fa-check"></i><b>5.5</b> 推定結果の整理</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="Others.html"><a href="Others.html"><i class="fa fa-check"></i><b>6</b> 参考リンク</a><ul>
+<li class="chapter" data-level="6.1" data-path="Others.html"><a href="Others.html#web-スクレイピング"><i class="fa fa-check"></i><b>6.1</b> Web スクレイピング</a></li>
+<li class="chapter" data-level="6.2" data-path="Others.html"><a href="Others.html#地理情報講座"><i class="fa fa-check"></i><b>6.2</b> 地理情報講座</a></li>
+<li class="chapter" data-level="6.3" data-path="Others.html"><a href="Others.html#パネルデータ分析-1"><i class="fa fa-check"></i><b>6.3</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="6.4" data-path="Others.html"><a href="Others.html#dplyr入門"><i class="fa fa-check"></i><b>6.4</b> dplyr入門</a></li>
+<li class="chapter" data-level="6.5" data-path="Others.html"><a href="Others.html#ggplot2-入門"><i class="fa fa-check"></i><b>6.5</b> ggplot2 入門</a></li>
+<li class="chapter" data-level="6.6" data-path="Others.html"><a href="Others.html#stringr入門"><i class="fa fa-check"></i><b>6.6</b> stringr入門</a></li>
+<li class="chapter" data-level="6.7" data-path="Others.html"><a href="Others.html#lubridate"><i class="fa fa-check"></i><b>6.7</b> lubridate</a></li>
+<li class="chapter" data-level="6.8" data-path="Others.html"><a href="Others.html#その他有用なサイト"><i class="fa fa-check"></i><b>6.8</b> その他有用なサイト</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">サブゼミ資料</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="操作変数法" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> 操作変数法</h1>
+<p>操作変数自体の説明は<a href="https://speakerdeck.com/tom01/rdeji-liang-jing-ji-xue-number-4-cao-zuo-bian-shu-fa">こちら</a>からどうぞ。</p>
+<div id="検証する仮説-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> 検証する仮説</h2>
+<p>「追加的に子供を出産することで、出産後の労働時間が減少するのではないか？」という仮説を検証していきます。出産が労働時間に与える影響がテーマです。Angrist and Evans(1998)の再現です。</p>
+</div>
+<div id="データの読み込み-1" class="section level2">
+<h2><span class="header-section-number">3.2</span> データの読み込み</h2>
+<p>今回使用するデータはU.S. census (1980年)の既婚女性に関するもので、22~ 35歳の2人以上の子供を持つ既婚女性,計254,654人が対象です。</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="IV.html#cb94-1"></a>df &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&#39;data/labsup_edited.csv&#39;</span>)</span>
+<span id="cb94-2"><a href="IV.html#cb94-2"></a><span class="kw">head</span>(df)</span></code></pre></div>
+<pre><code>##   morekids boy1st boy2nd samesex agem1 black hispan othrace weeksm1
+## 1        0      1      0       0    27     0      0       0       0
+## 2        0      0      1       0    30     0      0       0      30
+## 3        0      1      0       0    27     0      0       0       0
+## 4        0      1      0       0    35     1      0       0       0
+## 5        0      0      0       1    30     0      0       0      22
+## 6        0      1      0       0    26     0      0       0      40</code></pre>
+<p>○変数の説明</p>
+<table>
+<thead>
+<tr class="header">
+<th>変数名</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>morekids</td>
+<td>子供が3人以上いる母親なら1をとるダミー変数</td>
+</tr>
+<tr class="even">
+<td>boy1st</td>
+<td>最初の子供が男なら1をとるダミー変数</td>
+</tr>
+<tr class="odd">
+<td>boy2nd</td>
+<td>2番目の子供が男なら1をとるダミー変数</td>
+</tr>
+<tr class="even">
+<td>samesex</td>
+<td>最初と2番目の子供の性別が同じなら1をとるダミー変数</td>
+</tr>
+<tr class="odd">
+<td>agem1</td>
+<td>母親が初めて出産した時の年齢</td>
+</tr>
+<tr class="even">
+<td>black</td>
+<td>母親が黒人なら1をとるダミー変数</td>
+</tr>
+<tr class="odd">
+<td>hispan</td>
+<td>母親がヒスパニック系なら1をとるダミー変数</td>
+</tr>
+<tr class="even">
+<td>othrace</td>
+<td>母親が黒人・ヒスパニック系以外なら1をとるダミー変数</td>
+</tr>
+<tr class="odd">
+<td>weeksm1</td>
+<td>1979年の母親の週の平均労働時間</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="データの把握-1" class="section level2">
+<h2><span class="header-section-number">3.3</span> データの把握</h2>
+<p>データの特徴を把握していきます。欠損値は特になさそうです。<code>weeksm1</code>を見ると、働いてない女性も結構いますね。</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="IV.html#cb96-1"></a><span class="kw">summary</span>(df)</span></code></pre></div>
+<pre><code>##     morekids          boy1st           boy2nd          samesex           agem1      
+##  Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000   Min.   :21.00  
+##  1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:28.00  
+##  Median :0.0000   Median :1.0000   Median :1.0000   Median :1.0000   Median :31.00  
+##  Mean   :0.3806   Mean   :0.5144   Mean   :0.5126   Mean   :0.5056   Mean   :30.39  
+##  3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:1.0000   3rd Qu.:33.00  
+##  Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000   Max.   :35.00  
+##      black             hispan           othrace           weeksm1     
+##  Min.   :0.00000   Min.   :0.00000   Min.   :0.00000   Min.   : 0.00  
+##  1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.: 0.00  
+##  Median :0.00000   Median :0.00000   Median :0.00000   Median : 5.00  
+##  Mean   :0.05166   Mean   :0.07421   Mean   :0.05634   Mean   :19.02  
+##  3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.:44.00  
+##  Max.   :1.00000   Max.   :1.00000   Max.   :1.00000   Max.   :52.00</code></pre>
+</div>
+<div id="推定-2" class="section level2">
+<h2><span class="header-section-number">3.4</span> 推定</h2>
+<p>今回興味のある変数は<code>morekids</code>です。このパラメータが負であれば、仮説は検証されます。このままOLS推定してもいいですが、その場合には内生性が生じている状況での推定になります。具体的には、働きたくない人（労働時間を短い人）ほど、子供を多く出産するという逆の因果性が考えられます。この逆の因果性は需要関数を推定する際にも生じうる問題です。そこで、今回は操作変数法という手法で、この逆の因果性に対処してみます。</p>
+<div id="計量経済学モデル-2" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> 計量経済学モデル</h3>
+<p>1段階目
+<span class="math display">\[ 
+morekids_{i} = \alpha + \beta_{1}\times samesex_{i}+ \beta_{2}\times agem1_{i}+ \beta_{3}\times black_{i}+ \beta_{4}\times hispan_{i} + \beta_{5}\times othrace_{i} + u_{i} 
+\]</span></p>
+<p>2段階目
+<span class="math display">\[ 
+weeksm1_{i} = \alpha + \beta_{1}\times \widehat{morekids_{i}}+ \beta_{2}\times agem1_{i}+ \beta_{3}\times black_{i}+ \beta_{4}\times hispan_{i} + \beta_{5}\times othrace_{i} + u_{i} 
+\]</span></p>
+</div>
+<div id="操作変数の確認" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> 操作変数の確認</h3>
+<p>なんでも操作変数に出来る訳ではありません。<em>妥当性</em>と<em>外生性</em>の2つを満たしている必要があります。</p>
+<ul>
+<li><em>妥当性</em></li>
+<li>内生変数(morekids)と相関がある.</li>
+<li>同性の子供がいる親は追加的な子供を欲しがる傾向にある</li>
+<li><em>外生性</em></li>
+<li>被説明変数(weeksm1)と相関がない.</li>
+<li>子供の性別は直接的に労働時間に影響は与えない</li>
+</ul>
+<p>このうち<em>妥当性</em>に関しては、1段階の推定でF値が10を超えるかどうかで定量的に判断出来ます。（あくまで経験則ですが…）今回の場合で実際に推定してみると、<code>samesex</code>は<code>morekids</code>に統計的に有意な影響をあたえており、F値も10を超えているので妥当性に関しては満たされていそうです。<em>外生性</em>に関しては言葉を尽くすのみです。</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="IV.html#cb98-1"></a>out_1st &lt;-<span class="st"> </span><span class="kw">lm</span>(morekids <span class="op">~</span><span class="st"> </span>samesex <span class="op">+</span><span class="st"> </span>agem1 <span class="op">+</span><span class="st"> </span>black <span class="op">+</span><span class="st"> </span>hispan <span class="op">+</span><span class="st"> </span>othrace , <span class="dt">data =</span> df)</span>
+<span id="cb98-2"><a href="IV.html#cb98-2"></a><span class="kw">summary</span>(out_1st)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## lm(formula = morekids ~ samesex + agem1 + black + hispan + othrace, 
+##     data = df)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -0.7189 -0.3869 -0.3068  0.5790  0.8164 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.1395319  0.0086985 -16.041  &lt; 2e-16 ***
+## samesex      0.0680081  0.0019010  35.774  &lt; 2e-16 ***
+## agem1        0.0153898  0.0002814  54.681  &lt; 2e-16 ***
+## black        0.1005237  0.0043058  23.346  &lt; 2e-16 ***
+## hispan       0.1512258  0.0040119  37.694  &lt; 2e-16 ***
+## othrace      0.0275069  0.0045537   6.041 1.54e-09 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.4796 on 254648 degrees of freedom
+## Multiple R-squared:  0.02418,    Adjusted R-squared:  0.02416 
+## F-statistic:  1262 on 5 and 254648 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+<div id="推定-3" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> 推定</h3>
+<p>操作変数の妥当性・外生性の吟味を終えたので、実際に操作変数法で推定してみましょう！<code>AER</code>パッケージに入っている<code>ivreg</code>という関数を使います。初めて<code>AER</code>パッケージを使う人は事前に<code>install.packages("AER")</code>を実行してください。</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="IV.html#cb100-1"></a><span class="kw">library</span>(AER)</span></code></pre></div>
+<pre><code>## Loading required package: lmtest</code></pre>
+<pre><code>## Loading required package: zoo</code></pre>
+<pre><code>## 
+## Attaching package: &#39;zoo&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     as.Date, as.Date.numeric</code></pre>
+<pre><code>## Loading required package: sandwich</code></pre>
+<pre><code>## Loading required package: survival</code></pre>
+<p><code>ivreg(被説明変数 ~ 内生変数 + その他説明変数 | 操作変数 + その他説明変数, data = データの名前)</code>このように書きます。今回は推定結果を<code>out_iv</code>に格納します。</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="IV.html#cb107-1"></a>out_iv &lt;-<span class="st"> </span><span class="kw">ivreg</span>( weeksm1 <span class="op">~</span><span class="st"> </span>morekids <span class="op">+</span><span class="st"> </span>agem1 <span class="op">+</span><span class="st"> </span>black <span class="op">+</span><span class="st"> </span>hispan <span class="op">+</span><span class="st"> </span>othrace  <span class="op">|</span><span class="st">  </span>samesex <span class="op">+</span><span class="st"> </span>agem1 <span class="op">+</span><span class="st"> </span>black <span class="op">+</span><span class="st"> </span>hispan <span class="op">+</span><span class="st"> </span>othrace, <span class="dt">data =</span> df)</span></code></pre></div>
+</div>
+<div id="解釈-2" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> 解釈</h3>
+<p>結果をみる時は、いつも通り<code>summary()</code>です。2段階目の推定結果が出力されます。基本的にはOLS推定と見方は同じです。追加的に子供が1人増えると、5.8時ほど週の労働時間が減少する傾向にあるみたいです。</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="IV.html#cb108-1"></a><span class="kw">summary</span>(out_iv)</span></code></pre></div>
+<pre><code>## 
+## Call:
+## ivreg(formula = weeksm1 ~ morekids + agem1 + black + hispan + 
+##     othrace | samesex + agem1 + black + hispan + othrace, data = df)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -36.34 -17.66 -10.99  22.72  45.15 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -4.79189    0.40657 -11.786   &lt;2e-16 ***
+## morekids    -5.82105    1.24631  -4.671    3e-06 ***
+## agem1        0.83160    0.02289  36.336   &lt;2e-16 ***
+## black       11.62327    0.22893  50.772   &lt;2e-16 ***
+## hispan       0.40418    0.25986   1.555     0.12    
+## othrace      2.13096    0.20586  10.352   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 21.38 on 254648 degrees of freedom
+## Multiple R-Squared: 0.04368, Adjusted R-squared: 0.04366 
+## Wald test:  1335 on 5 and 254648 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div id="推定結果の整理" class="section level2">
+<h2><span class="header-section-number">3.5</span> 推定結果の整理</h2>
+<p>さて、操作変数法を使ったことでOLS推定での結果からどのように変化をしたか検討してみます。OLS推定だと、働きたくない人（労働時間を短い人）ほど、子供を多く出産する逆の因果性による効果もパラメータの値に含まれてしまうので、<code>morekids</code>のパラメータの値は大きく推定されると予想出来ます。</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="IV.html#cb110-1"></a>out_OLS &lt;-<span class="st"> </span><span class="kw">lm</span>(weeksm1 <span class="op">~</span><span class="st"> </span>morekids <span class="op">+</span><span class="st"> </span>agem1 <span class="op">+</span><span class="st"> </span>black <span class="op">+</span><span class="st"> </span>hispan <span class="op">+</span><span class="st"> </span>othrace , <span class="dt">data =</span> df)</span></code></pre></div>
+<p>複数の推定結果を比較する際には、この<code>stargazer</code>というライブラリが便利です。</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="IV.html#cb111-1"></a><span class="kw">library</span>(stargazer)</span></code></pre></div>
+<pre><code>## 
+## Please cite as:</code></pre>
+<pre><code>##  Hlavac, Marek (2018). stargazer: Well-Formatted Regression and Summary Statistics Tables.</code></pre>
+<pre><code>##  R package version 5.2.2. https://CRAN.R-project.org/package=stargazer</code></pre>
+<p>推定結果を見てみると、確かに操作変数法を使ったことで、少しパラメータの値が小さくなっていることがわかります。<code>stargazer</code>のより詳しい説明は<a href="https://www.jakeruss.com/cheatsheets/stargazer/">こちら</a>です。</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="IV.html#cb115-1"></a><span class="kw">stargazer</span>(out_OLS, out_iv, <span class="dt">type=</span><span class="st">&quot;text&quot;</span>)</span></code></pre></div>
+<pre><code>## 
+## ============================================================================
+##                                              Dependent variable:            
+##                                   ------------------------------------------
+##                                                    weeksm1                  
+##                                                OLS              instrumental
+##                                                                   variable  
+##                                                (1)                  (2)     
+## ----------------------------------------------------------------------------
+## morekids                                    -6.230***            -5.821***  
+##                                              (0.088)              (1.246)   
+##                                                                             
+## agem1                                       0.838***              0.832***  
+##                                              (0.013)              (0.023)   
+##                                                                             
+## black                                       11.664***            11.623***  
+##                                              (0.192)              (0.229)   
+##                                                                             
+## hispan                                      0.466***               0.404    
+##                                              (0.179)              (0.260)   
+##                                                                             
+## othrace                                     2.142***              2.131***  
+##                                              (0.203)              (0.206)   
+##                                                                             
+## Constant                                    -4.835***            -4.792***  
+##                                              (0.385)              (0.407)   
+##                                                                             
+## ----------------------------------------------------------------------------
+## Observations                                 254,654              254,654   
+## R2                                            0.044                0.044    
+## Adjusted R2                                   0.044                0.044    
+## Residual Std. Error (df = 254648)            21.384                21.385   
+## F Statistic                       2,330.779*** (df = 5; 254648)             
+## ============================================================================
+## Note:                                            *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="OLS.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="DC.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
