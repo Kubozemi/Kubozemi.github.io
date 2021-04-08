@@ -293,7 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>mean()は平均値、median()は中央値です。</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="Introduction.html#cb23-1"></a><span class="kw">mean</span>(a)</span></code></pre></div>
 <pre><code>## [1] 2.5</code></pre>
-<p>最大値、最小値もそれぞれ<code>max()``min()</code>で取得出来ます。<code>print()</code>を使うと、その名の通り結果を出力出来ます。</p>
+<p>最大値、最小値もそれぞれ<code>max()</code>、<code>min()</code>で取得出来ます。<code>print()</code>を使うと、その名の通り結果を出力出来ます。</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="Introduction.html#cb25-1"></a><span class="kw">print</span>(<span class="kw">max</span>(a))</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="Introduction.html#cb27-1"></a><span class="kw">print</span>(<span class="kw">min</span>(a))</span></code></pre></div>
@@ -378,6 +378,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>先ほど、計算するにはデータの型が数値である必要があるという話がありましたが、実は論理演算子も計算することが出来ます。例えば、合計を算出する関数である<code>sum()</code>を使うと、以下のように<code>TRUE</code>の数が集計されます。</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="Introduction.html#cb62-1"></a><span class="kw">sum</span>(answer)</span></code></pre></div>
 <pre><code>## [1] 2</code></pre>
+<p><code>==</code>で、一致しているかどうかを判定する。一致してたらTRUE, 一致しなかったらFALSEで返ってきます。</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="Introduction.html#cb64-1"></a>a &lt;-<span class="st"> &quot;YES&quot;</span></span>
+<span id="cb64-2"><a href="Introduction.html#cb64-2"></a>b &lt;-<span class="st"> &quot;NO&quot;</span></span>
+<span id="cb64-3"><a href="Introduction.html#cb64-3"></a></span>
+<span id="cb64-4"><a href="Introduction.html#cb64-4"></a>a <span class="op">==</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<p>なぜか数字と文字列の区別はないみたいです。</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="Introduction.html#cb66-1"></a>a &lt;-<span class="st"> &quot;5&quot;</span></span>
+<span id="cb66-2"><a href="Introduction.html#cb66-2"></a>b &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb66-3"><a href="Introduction.html#cb66-3"></a></span>
+<span id="cb66-4"><a href="Introduction.html#cb66-4"></a>a <span class="op">==</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>数字に関しては、不等号を使って大小判定も出来ます。</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="Introduction.html#cb68-1"></a>a &lt;-<span class="st"> </span><span class="dv">2</span></span>
+<span id="cb68-2"><a href="Introduction.html#cb68-2"></a>b &lt;-<span class="st"> </span><span class="dv">5</span></span>
+<span id="cb68-3"><a href="Introduction.html#cb68-3"></a></span>
+<span id="cb68-4"><a href="Introduction.html#cb68-4"></a>a <span class="op">&gt;</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="Introduction.html#cb70-1"></a>a <span class="op">&lt;=</span><span class="st"> </span>b</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 
 </div>
 </div>
