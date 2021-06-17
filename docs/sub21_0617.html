@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 データハンドリング | サブゼミ資料</title>
+  <meta name="description" content="Chapter 6 データハンドリング | サブゼミ資料" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 データハンドリング | サブゼミ資料" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 データハンドリング | サブゼミ資料" />
+  
+  
+  
+
+<meta name="author" content="Kubozemi" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="PANEL.html"/>
+<link rel="next" href="Others.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">book title.</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="Introduction.html"><a href="Introduction.html"><i class="fa fa-check"></i><b>1</b> イントロダクション</a><ul>
+<li class="chapter" data-level="1.1" data-path="Introduction.html"><a href="Introduction.html#環境構築"><i class="fa fa-check"></i><b>1.1</b> 環境構築</a></li>
+<li class="chapter" data-level="1.2" data-path="Introduction.html"><a href="Introduction.html#基本的な計算"><i class="fa fa-check"></i><b>1.2</b> 基本的な計算</a></li>
+<li class="chapter" data-level="1.3" data-path="Introduction.html"><a href="Introduction.html#ベクトル"><i class="fa fa-check"></i><b>1.3</b> ベクトル</a></li>
+<li class="chapter" data-level="1.4" data-path="Introduction.html"><a href="Introduction.html#データフレーム"><i class="fa fa-check"></i><b>1.4</b> データフレーム</a></li>
+<li class="chapter" data-level="1.5" data-path="Introduction.html"><a href="Introduction.html#データの型"><i class="fa fa-check"></i><b>1.5</b> データの型</a><ul>
+<li class="chapter" data-level="1.5.1" data-path="Introduction.html"><a href="Introduction.html#数値"><i class="fa fa-check"></i><b>1.5.1</b> 数値</a></li>
+<li class="chapter" data-level="1.5.2" data-path="Introduction.html"><a href="Introduction.html#文字"><i class="fa fa-check"></i><b>1.5.2</b> 文字</a></li>
+<li class="chapter" data-level="1.5.3" data-path="Introduction.html"><a href="Introduction.html#論理演算子"><i class="fa fa-check"></i><b>1.5.3</b> 論理演算子</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="OLS.html"><a href="OLS.html"><i class="fa fa-check"></i><b>2</b> 回帰分析</a><ul>
+<li class="chapter" data-level="2.1" data-path="OLS.html"><a href="OLS.html#検証する仮説"><i class="fa fa-check"></i><b>2.1</b> 検証する仮説</a></li>
+<li class="chapter" data-level="2.2" data-path="OLS.html"><a href="OLS.html#データの読み込み"><i class="fa fa-check"></i><b>2.2</b> データの読み込み</a></li>
+<li class="chapter" data-level="2.3" data-path="OLS.html"><a href="OLS.html#データの把握"><i class="fa fa-check"></i><b>2.3</b> データの把握</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="OLS.html"><a href="OLS.html#ヒストグラム"><i class="fa fa-check"></i><b>2.3.1</b> ヒストグラム</a></li>
+<li class="chapter" data-level="2.3.2" data-path="OLS.html"><a href="OLS.html#散布図"><i class="fa fa-check"></i><b>2.3.2</b> 散布図</a></li>
+<li class="chapter" data-level="2.3.3" data-path="OLS.html"><a href="OLS.html#基本統計量"><i class="fa fa-check"></i><b>2.3.3</b> 基本統計量</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="OLS.html"><a href="OLS.html#単回帰分析"><i class="fa fa-check"></i><b>2.4</b> 単回帰分析</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="OLS.html"><a href="OLS.html#計量経済学モデル"><i class="fa fa-check"></i><b>2.4.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="2.4.2" data-path="OLS.html"><a href="OLS.html#推定"><i class="fa fa-check"></i><b>2.4.2</b> 推定</a></li>
+<li class="chapter" data-level="2.4.3" data-path="OLS.html"><a href="OLS.html#解釈"><i class="fa fa-check"></i><b>2.4.3</b> 解釈</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="OLS.html"><a href="OLS.html#重回帰分析"><i class="fa fa-check"></i><b>2.5</b> 重回帰分析</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="OLS.html"><a href="OLS.html#計量経済学モデル-1"><i class="fa fa-check"></i><b>2.5.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="2.5.2" data-path="OLS.html"><a href="OLS.html#データの加工-新規変数作成"><i class="fa fa-check"></i><b>2.5.2</b> データの加工: 新規変数作成</a></li>
+<li class="chapter" data-level="2.5.3" data-path="OLS.html"><a href="OLS.html#データの加工-欠損値の処理"><i class="fa fa-check"></i><b>2.5.3</b> データの加工: 欠損値の処理</a></li>
+<li class="chapter" data-level="2.5.4" data-path="OLS.html"><a href="OLS.html#データの加工-ダミー変数"><i class="fa fa-check"></i><b>2.5.4</b> データの加工: ダミー変数</a></li>
+<li class="chapter" data-level="2.5.5" data-path="OLS.html"><a href="OLS.html#推定-1"><i class="fa fa-check"></i><b>2.5.5</b> 推定</a></li>
+<li class="chapter" data-level="2.5.6" data-path="OLS.html"><a href="OLS.html#解釈-1"><i class="fa fa-check"></i><b>2.5.6</b> 解釈</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="OLS.html"><a href="OLS.html#捕捉多重共線性"><i class="fa fa-check"></i><b>2.6</b> 捕捉：多重共線性</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="OLS.html"><a href="OLS.html#相関係数"><i class="fa fa-check"></i><b>2.6.1</b> 相関係数</a></li>
+<li class="chapter" data-level="2.6.2" data-path="OLS.html"><a href="OLS.html#vif統計量"><i class="fa fa-check"></i><b>2.6.2</b> VIF統計量</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="IV.html"><a href="IV.html"><i class="fa fa-check"></i><b>3</b> 操作変数法</a><ul>
+<li class="chapter" data-level="3.1" data-path="IV.html"><a href="IV.html#検証する仮説-1"><i class="fa fa-check"></i><b>3.1</b> 検証する仮説</a></li>
+<li class="chapter" data-level="3.2" data-path="IV.html"><a href="IV.html#データの読み込み-1"><i class="fa fa-check"></i><b>3.2</b> データの読み込み</a></li>
+<li class="chapter" data-level="3.3" data-path="IV.html"><a href="IV.html#データの把握-1"><i class="fa fa-check"></i><b>3.3</b> データの把握</a></li>
+<li class="chapter" data-level="3.4" data-path="IV.html"><a href="IV.html#推定-2"><i class="fa fa-check"></i><b>3.4</b> 推定</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="IV.html"><a href="IV.html#計量経済学モデル-2"><i class="fa fa-check"></i><b>3.4.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="3.4.2" data-path="IV.html"><a href="IV.html#操作変数の確認"><i class="fa fa-check"></i><b>3.4.2</b> 操作変数の確認</a></li>
+<li class="chapter" data-level="3.4.3" data-path="IV.html"><a href="IV.html#推定-3"><i class="fa fa-check"></i><b>3.4.3</b> 推定</a></li>
+<li class="chapter" data-level="3.4.4" data-path="IV.html"><a href="IV.html#解釈-2"><i class="fa fa-check"></i><b>3.4.4</b> 解釈</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="IV.html"><a href="IV.html#推定結果の整理"><i class="fa fa-check"></i><b>3.5</b> 推定結果の整理</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="DC.html"><a href="DC.html"><i class="fa fa-check"></i><b>4</b> 離散選択モデル</a><ul>
+<li class="chapter" data-level="4.1" data-path="DC.html"><a href="DC.html#検証する仮説-2"><i class="fa fa-check"></i><b>4.1</b> 検証する仮説</a></li>
+<li class="chapter" data-level="4.2" data-path="DC.html"><a href="DC.html#データの読み込み-2"><i class="fa fa-check"></i><b>4.2</b> データの読み込み</a></li>
+<li class="chapter" data-level="4.3" data-path="DC.html"><a href="DC.html#データの把握-2"><i class="fa fa-check"></i><b>4.3</b> データの把握</a></li>
+<li class="chapter" data-level="4.4" data-path="DC.html"><a href="DC.html#推定-4"><i class="fa fa-check"></i><b>4.4</b> 推定</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="DC.html"><a href="DC.html#計量経済学モデル-3"><i class="fa fa-check"></i><b>4.4.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="4.4.2" data-path="DC.html"><a href="DC.html#ロジットモデル"><i class="fa fa-check"></i><b>4.4.2</b> ロジットモデル</a></li>
+<li class="chapter" data-level="4.4.3" data-path="DC.html"><a href="DC.html#解釈-3"><i class="fa fa-check"></i><b>4.4.3</b> 解釈</a></li>
+<li class="chapter" data-level="4.4.4" data-path="DC.html"><a href="DC.html#プロビットモデル"><i class="fa fa-check"></i><b>4.4.4</b> プロビットモデル</a></li>
+<li class="chapter" data-level="4.4.5" data-path="DC.html"><a href="DC.html#解釈-4"><i class="fa fa-check"></i><b>4.4.5</b> 解釈</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="DC.html"><a href="DC.html#推定結果の整理-1"><i class="fa fa-check"></i><b>4.5</b> 推定結果の整理</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="PANEL.html"><a href="PANEL.html"><i class="fa fa-check"></i><b>5</b> パネルデータ分析</a><ul>
+<li class="chapter" data-level="5.1" data-path="PANEL.html"><a href="PANEL.html#検証する仮説-3"><i class="fa fa-check"></i><b>5.1</b> 検証する仮説</a></li>
+<li class="chapter" data-level="5.2" data-path="PANEL.html"><a href="PANEL.html#データの読み込み-3"><i class="fa fa-check"></i><b>5.2</b> データの読み込み</a></li>
+<li class="chapter" data-level="5.3" data-path="PANEL.html"><a href="PANEL.html#データの把握-3"><i class="fa fa-check"></i><b>5.3</b> データの把握</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="PANEL.html"><a href="PANEL.html#基本統計量-1"><i class="fa fa-check"></i><b>5.3.1</b> 基本統計量</a></li>
+<li class="chapter" data-level="5.3.2" data-path="PANEL.html"><a href="PANEL.html#データの可視化"><i class="fa fa-check"></i><b>5.3.2</b> データの可視化</a></li>
+<li class="chapter" data-level="5.3.3" data-path="PANEL.html"><a href="PANEL.html#対数変換"><i class="fa fa-check"></i><b>5.3.3</b> 対数変換</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="PANEL.html"><a href="PANEL.html#推定-5"><i class="fa fa-check"></i><b>5.4</b> 推定</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="PANEL.html"><a href="PANEL.html#計量経済学モデル-4"><i class="fa fa-check"></i><b>5.4.1</b> 計量経済学モデル</a></li>
+<li class="chapter" data-level="5.4.2" data-path="PANEL.html"><a href="PANEL.html#準備"><i class="fa fa-check"></i><b>5.4.2</b> 準備</a></li>
+<li class="chapter" data-level="5.4.3" data-path="PANEL.html"><a href="PANEL.html#変量効果モデル"><i class="fa fa-check"></i><b>5.4.3</b> 変量効果モデル</a></li>
+<li class="chapter" data-level="5.4.4" data-path="PANEL.html"><a href="PANEL.html#固定効果モデル"><i class="fa fa-check"></i><b>5.4.4</b> 固定効果モデル</a></li>
+<li class="chapter" data-level="5.4.5" data-path="PANEL.html"><a href="PANEL.html#ハウスマン検定"><i class="fa fa-check"></i><b>5.4.5</b> ハウスマン検定</a></li>
+<li class="chapter" data-level="5.4.6" data-path="PANEL.html"><a href="PANEL.html#固定効果時間効果"><i class="fa fa-check"></i><b>5.4.6</b> 固定効果×時間効果</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="PANEL.html"><a href="PANEL.html#推定結果の整理-2"><i class="fa fa-check"></i><b>5.5</b> 推定結果の整理</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="sub21_0617.html"><a href="sub21_0617.html"><i class="fa fa-check"></i><b>6</b> データハンドリング</a></li>
+<li class="chapter" data-level="7" data-path="sub21_0617.html"><a href="sub21_0617.html#繰り返し条件分岐"><i class="fa fa-check"></i><b>7</b> 1. 繰り返し・条件分岐</a><ul>
+<li class="chapter" data-level="7.1" data-path="sub21_0617.html"><a href="sub21_0617.html#繰り返し構文"><i class="fa fa-check"></i><b>7.1</b> 1-1 繰り返し構文</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="sub21_0617.html"><a href="sub21_0617.html#tips-空箱をつくる"><i class="fa fa-check"></i><b>7.1.1</b> Tips: 空箱をつくる</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="sub21_0617.html"><a href="sub21_0617.html#条件分岐"><i class="fa fa-check"></i><b>7.2</b> 1-2 条件分岐</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="sub21_0617.html"><a href="sub21_0617.html#dplyr入門"><i class="fa fa-check"></i><b>8</b> 2. dplyr入門</a><ul>
+<li class="chapter" data-level="8.1" data-path="sub21_0617.html"><a href="sub21_0617.html#準備-1"><i class="fa fa-check"></i><b>8.1</b> 2-1 準備</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="sub21_0617.html"><a href="sub21_0617.html#dplyrとは"><i class="fa fa-check"></i><b>8.1.1</b> dplyrとは?</a></li>
+<li class="chapter" data-level="8.1.2" data-path="sub21_0617.html"><a href="sub21_0617.html#dplyrの文法"><i class="fa fa-check"></i><b>8.1.2</b> dplyrの文法</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="sub21_0617.html"><a href="sub21_0617.html#使用データ"><i class="fa fa-check"></i><b>8.2</b> 2-2 使用データ</a></li>
+<li class="chapter" data-level="8.3" data-path="sub21_0617.html"><a href="sub21_0617.html#dplyrを使ったデータフレーム処理"><i class="fa fa-check"></i><b>8.3</b> 2-3 dplyrを使ったデータフレーム処理</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="sub21_0617.html"><a href="sub21_0617.html#select-列変数の選択"><i class="fa fa-check"></i><b>8.3.1</b> select(): 列(変数)の選択</a></li>
+<li class="chapter" data-level="8.3.2" data-path="sub21_0617.html"><a href="sub21_0617.html#filter-行観測の選択"><i class="fa fa-check"></i><b>8.3.2</b> filter(): 行(観測)の選択</a></li>
+<li class="chapter" data-level="8.3.3" data-path="sub21_0617.html"><a href="sub21_0617.html#group_byungroup-グループ化解除"><i class="fa fa-check"></i><b>8.3.3</b> group_by()/ungroup(): グループ化/解除</a></li>
+<li class="chapter" data-level="8.3.4" data-path="sub21_0617.html"><a href="sub21_0617.html#summarize-集計"><i class="fa fa-check"></i><b>8.3.4</b> summarize(): 集計</a></li>
+<li class="chapter" data-level="8.3.5" data-path="sub21_0617.html"><a href="sub21_0617.html#mutate-新しい変数作成"><i class="fa fa-check"></i><b>8.3.5</b> mutate(): 新しい変数作成</a></li>
+<li><a href="sub21_0617.html#pivot_wide型からlong型への変換-次回"><span class="toc-section-number">8.3.6</span> pivot_*()：wide型からlong型への変換
+次回</a></li>
+<li class="chapter" data-level="8.3.7" data-path="sub21_0617.html"><a href="sub21_0617.html#arrange行の並び替え"><i class="fa fa-check"></i><b>8.3.7</b> arrange()：行の並び替え</a></li>
+<li class="chapter" data-level="8.3.8" data-path="sub21_0617.html"><a href="sub21_0617.html#distinct-重複行の操作"><i class="fa fa-check"></i><b>8.3.8</b> distinct(): 重複行の操作</a></li>
+<li><a href="sub21_0617.html#join-データフレームの結合-次回"><span class="toc-section-number">8.3.9</span> *_join(): データフレームの結合
+次回</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="Others.html"><a href="Others.html"><i class="fa fa-check"></i><b>9</b> 参考リンク</a><ul>
+<li class="chapter" data-level="9.1" data-path="Others.html"><a href="Others.html#web-スクレイピング"><i class="fa fa-check"></i><b>9.1</b> Web スクレイピング</a></li>
+<li class="chapter" data-level="9.2" data-path="Others.html"><a href="Others.html#地理情報講座"><i class="fa fa-check"></i><b>9.2</b> 地理情報講座</a></li>
+<li class="chapter" data-level="9.3" data-path="Others.html"><a href="Others.html#パネルデータ分析-1"><i class="fa fa-check"></i><b>9.3</b> パネルデータ分析</a></li>
+<li class="chapter" data-level="9.4" data-path="Others.html"><a href="Others.html#dplyr入門-1"><i class="fa fa-check"></i><b>9.4</b> dplyr入門</a></li>
+<li class="chapter" data-level="9.5" data-path="Others.html"><a href="Others.html#ggplot2-入門"><i class="fa fa-check"></i><b>9.5</b> ggplot2 入門</a></li>
+<li class="chapter" data-level="9.6" data-path="Others.html"><a href="Others.html#stringr入門"><i class="fa fa-check"></i><b>9.6</b> stringr入門</a></li>
+<li class="chapter" data-level="9.7" data-path="Others.html"><a href="Others.html#lubridate"><i class="fa fa-check"></i><b>9.7</b> lubridate</a></li>
+<li class="chapter" data-level="9.8" data-path="Others.html"><a href="Others.html#その他有用なサイト"><i class="fa fa-check"></i><b>9.8</b> その他有用なサイト</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">サブゼミ資料</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="データハンドリング" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> データハンドリング</h1>
+</div>
+<div id="繰り返し条件分岐" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> 1. 繰り返し・条件分岐</h1>
+<div id="繰り返し構文" class="section level2">
+<h2><span class="header-section-number">7.1</span> 1-1 繰り返し構文</h2>
+<p>データを加工する際，変更箇所の少ない演算を何度も繰り返し行うことがあります．
+そんなときに便利なのが<code>for</code>を使った繰り返し構文です．</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="sub21_0617.html#cb175-1"></a><span class="cf">for</span>(i <span class="cf">in</span> 範囲){</span>
+<span id="cb175-2"><a href="sub21_0617.html#cb175-2"></a>  コマンド <span class="dv">1</span></span>
+<span id="cb175-3"><a href="sub21_0617.html#cb175-3"></a>  コマンド <span class="dv">2</span></span>
+<span id="cb175-4"><a href="sub21_0617.html#cb175-4"></a>  コマンド <span class="dv">3</span></span>
+<span id="cb175-5"><a href="sub21_0617.html#cb175-5"></a>}</span></code></pre></div>
+<p>ここで，<code>i</code>は繰り返しを制御する文字です．「<code>i</code>が<code>範囲</code>内の値を順番に取ったときに～というコマンドを実行する」という指令を出しています．例を見てみましょう．No.1からNo.10を出力したいときには次のようなコードで実行できます．文字を出力したいときは<code>cat()</code>関数が便利です．引数は出力したい文字です．<code>"\n"</code>で改行を指定します．</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="sub21_0617.html#cb176-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
+<span id="cb176-2"><a href="sub21_0617.html#cb176-2"></a>  <span class="kw">cat</span>(<span class="st">&quot;No.&quot;</span>, i, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>) <span class="co"># No. i を出力して改行</span></span>
+<span id="cb176-3"><a href="sub21_0617.html#cb176-3"></a>}</span></code></pre></div>
+<pre><code>## No. 1 
+## No. 2 
+## No. 3 
+## No. 4 
+## No. 5 
+## No. 6 
+## No. 7 
+## No. 8 
+## No. 9 
+## No. 10</code></pre>
+<div id="tips-空箱をつくる" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Tips: 空箱をつくる</h3>
+<p>繰り返し構文で出力したデータを1つにまとめて保存したい場合，予め「空箱」を作っておくと便利です．</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="sub21_0617.html#cb178-1"></a><span class="co">## 空箱を作る ##</span></span>
+<span id="cb178-2"><a href="sub21_0617.html#cb178-2"></a>numbers &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">10</span>) <span class="co"># NA 10個からなるベクトル</span></span>
+<span id="cb178-3"><a href="sub21_0617.html#cb178-3"></a></span>
+<span id="cb178-4"><a href="sub21_0617.html#cb178-4"></a><span class="co">## 繰り返し ##</span></span>
+<span id="cb178-5"><a href="sub21_0617.html#cb178-5"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">10</span>){</span>
+<span id="cb178-6"><a href="sub21_0617.html#cb178-6"></a>  numbers[i] &lt;-<span class="st"> </span><span class="kw">paste</span>(i) <span class="co"># ベクトルnumbers の第i成分にiを代入</span></span>
+<span id="cb178-7"><a href="sub21_0617.html#cb178-7"></a>}</span>
+<span id="cb178-8"><a href="sub21_0617.html#cb178-8"></a></span>
+<span id="cb178-9"><a href="sub21_0617.html#cb178-9"></a><span class="co">## 中身を確認 ##</span></span>
+<span id="cb178-10"><a href="sub21_0617.html#cb178-10"></a>numbers</span></code></pre></div>
+<pre><code>##  [1] &quot;1&quot;  &quot;2&quot;  &quot;3&quot;  &quot;4&quot;  &quot;5&quot;  &quot;6&quot;  &quot;7&quot;  &quot;8&quot;  &quot;9&quot;  &quot;10&quot;</code></pre>
+<p>ここで，<code>rep()</code>はリピートを表す関数です．上の例では欠損<code>NA</code>10個からなるベクトルを生成しています．</p>
+</div>
+</div>
+<div id="条件分岐" class="section level2">
+<h2><span class="header-section-number">7.2</span> 1-2 条件分岐</h2>
+<p>条件分岐もデータハンドリングでよく使われる構文です．<code>if</code>の直後の<code>()</code>には何らかの条件をいれ，真<code>TRUE</code>であれば<code>{}</code>内のコマンドが実行され，偽<code>FALSE</code>であれば<code>{}</code>内のコマンドはスキップされます．</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="sub21_0617.html#cb180-1"></a><span class="cf">if</span>( 条件 ){</span>
+<span id="cb180-2"><a href="sub21_0617.html#cb180-2"></a>  コマンド </span>
+<span id="cb180-3"><a href="sub21_0617.html#cb180-3"></a>  コマンド</span>
+<span id="cb180-4"><a href="sub21_0617.html#cb180-4"></a>  コマンド</span>
+<span id="cb180-5"><a href="sub21_0617.html#cb180-5"></a>} </span></code></pre></div>
+<p>複数の条件を順に分岐させたい場合は<code>else if(){}</code>や<code>else{}</code>を使います．条件が満たされない場合は次の分岐へと引き渡され，この手順が繰り返されます．どの条件も満たさない場合のコマンドは<code>else {}</code>で指定します．</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="sub21_0617.html#cb181-1"></a><span class="cf">if</span>( 条件 <span class="dv">1</span> ){</span>
+<span id="cb181-2"><a href="sub21_0617.html#cb181-2"></a>  コマンド <span class="dv">1</span></span>
+<span id="cb181-3"><a href="sub21_0617.html#cb181-3"></a>} <span class="cf">else</span> <span class="cf">if</span>( 条件 <span class="dv">2</span>){</span>
+<span id="cb181-4"><a href="sub21_0617.html#cb181-4"></a>  コマンド <span class="dv">2</span></span>
+<span id="cb181-5"><a href="sub21_0617.html#cb181-5"></a>} <span class="cf">else</span> <span class="cf">if</span>( 条件 <span class="dv">3</span>) {</span>
+<span id="cb181-6"><a href="sub21_0617.html#cb181-6"></a>  コマンド <span class="dv">3</span></span>
+<span id="cb181-7"><a href="sub21_0617.html#cb181-7"></a>} ..... {</span>
+<span id="cb181-8"><a href="sub21_0617.html#cb181-8"></a>  .....</span>
+<span id="cb181-9"><a href="sub21_0617.html#cb181-9"></a>} <span class="cf">else</span> {</span>
+<span id="cb181-10"><a href="sub21_0617.html#cb181-10"></a>  コマンド n</span>
+<span id="cb181-11"><a href="sub21_0617.html#cb181-11"></a>}</span></code></pre></div>
+<p>たとえば，実数<code>x</code>の偶奇を判定するプログラムは次の通り．</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="sub21_0617.html#cb182-1"></a><span class="co">## x が4のとき ##</span></span>
+<span id="cb182-2"><a href="sub21_0617.html#cb182-2"></a>x &lt;-<span class="st"> </span><span class="dv">4</span></span>
+<span id="cb182-3"><a href="sub21_0617.html#cb182-3"></a><span class="cf">if</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){ <span class="co"># x %% 2 は「xを2で割った余り」を表す</span></span>
+<span id="cb182-4"><a href="sub21_0617.html#cb182-4"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は偶数&#39;</span>, <span class="dt">sep =</span><span class="st">&#39;&#39;</span>)</span>
+<span id="cb182-5"><a href="sub21_0617.html#cb182-5"></a>} <span class="cf">else</span> <span class="cf">if</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb182-6"><a href="sub21_0617.html#cb182-6"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は奇数&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb182-7"><a href="sub21_0617.html#cb182-7"></a>} <span class="cf">else</span>{</span>
+<span id="cb182-8"><a href="sub21_0617.html#cb182-8"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は整数ではない&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb182-9"><a href="sub21_0617.html#cb182-9"></a>}</span></code></pre></div>
+<pre><code>## 4は偶数</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="sub21_0617.html#cb184-1"></a><span class="co">## x が43のとき ##</span></span>
+<span id="cb184-2"><a href="sub21_0617.html#cb184-2"></a>x &lt;-<span class="st"> </span><span class="dv">43</span></span>
+<span id="cb184-3"><a href="sub21_0617.html#cb184-3"></a><span class="cf">if</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb184-4"><a href="sub21_0617.html#cb184-4"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は偶数&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb184-5"><a href="sub21_0617.html#cb184-5"></a>} <span class="cf">else</span> <span class="cf">if</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb184-6"><a href="sub21_0617.html#cb184-6"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は奇数&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb184-7"><a href="sub21_0617.html#cb184-7"></a>} <span class="cf">else</span>{</span>
+<span id="cb184-8"><a href="sub21_0617.html#cb184-8"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は整数ではない&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb184-9"><a href="sub21_0617.html#cb184-9"></a>}</span></code></pre></div>
+<pre><code>## 43は奇数</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="sub21_0617.html#cb186-1"></a><span class="co">## x が円周率のとき ##</span></span>
+<span id="cb186-2"><a href="sub21_0617.html#cb186-2"></a>x &lt;-<span class="st"> </span>pi</span>
+<span id="cb186-3"><a href="sub21_0617.html#cb186-3"></a><span class="cf">if</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">0</span>){</span>
+<span id="cb186-4"><a href="sub21_0617.html#cb186-4"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は偶数&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb186-5"><a href="sub21_0617.html#cb186-5"></a>} <span class="cf">else</span> <span class="cf">if</span>(x <span class="op">%%</span><span class="st"> </span><span class="dv">2</span> <span class="op">==</span><span class="st"> </span><span class="dv">1</span>){</span>
+<span id="cb186-6"><a href="sub21_0617.html#cb186-6"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は奇数&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb186-7"><a href="sub21_0617.html#cb186-7"></a>} <span class="cf">else</span>{</span>
+<span id="cb186-8"><a href="sub21_0617.html#cb186-8"></a>  <span class="kw">cat</span>(x, <span class="st">&#39;は整数ではない&#39;</span>, <span class="dt">sep =</span> <span class="st">&#39;&#39;</span>)</span>
+<span id="cb186-9"><a href="sub21_0617.html#cb186-9"></a>}</span></code></pre></div>
+<pre><code>## 3.141593は整数ではない</code></pre>
+</div>
+</div>
+<div id="dplyr入門" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> 2. dplyr入門</h1>
+<div id="準備-1" class="section level2">
+<h2><span class="header-section-number">8.1</span> 2-1 準備</h2>
+<div id="dplyrとは" class="section level3">
+<h3><span class="header-section-number">8.1.1</span> dplyrとは?</h3>
+<p><code>dplyr</code>はデータフレームを効率良く処理するためのパッケージです．<code>tidyverse</code>の中に入っています．</p>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="sub21_0617.html#cb188-1"></a><span class="co">## 新規パッケージをインストール ##</span></span>
+<span id="cb188-2"><a href="sub21_0617.html#cb188-2"></a><span class="kw">install.packages</span>(<span class="st">&#39;tidyverse&#39;</span>)</span>
+<span id="cb188-3"><a href="sub21_0617.html#cb188-3"></a></span>
+<span id="cb188-4"><a href="sub21_0617.html#cb188-4"></a><span class="co">## パッケージを呼び出す ##</span></span>
+<span id="cb188-5"><a href="sub21_0617.html#cb188-5"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<p><code>tidyverse</code>は<code>dplyr</code>の他にも<code>ggplot2</code>などの便利なパッケージがたくさん入ってます．<code>dplyr</code>だけを使用したい場合は以下のコマンドでOKです．</p>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="sub21_0617.html#cb189-1"></a><span class="kw">library</span>(dplyr)</span></code></pre></div>
+</div>
+<div id="dplyrの文法" class="section level3">
+<h3><span class="header-section-number">8.1.2</span> dplyrの文法</h3>
+<p>パイプ<code>%&gt;%</code>を用いて操作途中の結果を次の操作へ渡すこと点が特徴的です．例えば，</p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="sub21_0617.html#cb190-1"></a>df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb190-2"><a href="sub21_0617.html#cb190-2"></a><span class="st">  </span>コマンド <span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb190-3"><a href="sub21_0617.html#cb190-3"></a><span class="st">  </span>コマンド <span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb190-4"><a href="sub21_0617.html#cb190-4"></a><span class="st">  </span>コマンド <span class="dv">3</span> ...</span></code></pre></div>
+<p>上の例ではデータフレーム<code>df</code>に対して<code>コマンド 1</code>, <code>コマンド 2</code>, …を順に実行していきます．特に<code>df</code>を操作して<code>df_new</code>へと変換する場合は次のようなコードになります．</p>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="sub21_0617.html#cb191-1"></a>df_new &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb191-2"><a href="sub21_0617.html#cb191-2"></a><span class="st">  </span>コマンド <span class="dv">1</span> <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb191-3"><a href="sub21_0617.html#cb191-3"></a><span class="st">  </span>コマンド <span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb191-4"><a href="sub21_0617.html#cb191-4"></a><span class="st">  </span>コマンド <span class="dv">3</span> ...</span></code></pre></div>
+<p>上のコードでは「<code>df</code>に<code>コマンド 1</code>, <code>コマンド 2</code>, …を実行したもの」を<code>df_new</code>に代入しています．</p>
+</div>
+</div>
+<div id="使用データ" class="section level2">
+<h2><span class="header-section-number">8.2</span> 2-2 使用データ</h2>
+<p>パッケージ<code>ggplot2</code>から<code>mpg</code>という自動車に関するデータを取得します．</p>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="sub21_0617.html#cb192-1"></a><span class="co">## データの取得 ##</span></span>
+<span id="cb192-2"><a href="sub21_0617.html#cb192-2"></a><span class="kw">data</span>(mpg, <span class="dt">package =</span> <span class="st">&quot;ggplot2&quot;</span>)</span>
+<span id="cb192-3"><a href="sub21_0617.html#cb192-3"></a></span>
+<span id="cb192-4"><a href="sub21_0617.html#cb192-4"></a><span class="co">## 最初の6行を確認 ##</span></span>
+<span id="cb192-5"><a href="sub21_0617.html#cb192-5"></a><span class="kw">head</span>(mpg)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 11
+##   manufacturer model displ  year   cyl trans drv     cty   hwy fl    class
+##   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 audi         a4      1.8  1999     4 auto… f        18    29 p     comp…
+## 2 audi         a4      1.8  1999     4 manu… f        21    29 p     comp…
+## 3 audi         a4      2    2008     4 manu… f        20    31 p     comp…
+## 4 audi         a4      2    2008     4 auto… f        21    30 p     comp…
+## 5 audi         a4      2.8  1999     6 auto… f        16    26 p     comp…
+## 6 audi         a4      2.8  1999     6 manu… f        18    26 p     comp…</code></pre>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="sub21_0617.html#cb194-1"></a><span class="co">## 列名を確認 ##</span></span>
+<span id="cb194-2"><a href="sub21_0617.html#cb194-2"></a><span class="kw">colnames</span>(mpg)</span></code></pre></div>
+<pre><code>##  [1] &quot;manufacturer&quot; &quot;model&quot;        &quot;displ&quot;        &quot;year&quot;        
+##  [5] &quot;cyl&quot;          &quot;trans&quot;        &quot;drv&quot;          &quot;cty&quot;         
+##  [9] &quot;hwy&quot;          &quot;fl&quot;           &quot;class&quot;</code></pre>
+</div>
+<div id="dplyrを使ったデータフレーム処理" class="section level2">
+<h2><span class="header-section-number">8.3</span> 2-3 dplyrを使ったデータフレーム処理</h2>
+<p>データフレームに様々な処理を行ってみましょう．</p>
+<div id="select-列変数の選択" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> select(): 列(変数)の選択</h3>
+<p><code>select()</code>は列を選択する関数です．最初の引数はデータ，2番目以降の引数は列名です．</p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="sub21_0617.html#cb196-1"></a>mpg_new &lt;-<span class="st"> </span><span class="kw">select</span>(mpg, manufacturer, model)</span>
+<span id="cb196-2"><a href="sub21_0617.html#cb196-2"></a></span>
+<span id="cb196-3"><a href="sub21_0617.html#cb196-3"></a><span class="co"># 確認</span></span>
+<span id="cb196-4"><a href="sub21_0617.html#cb196-4"></a><span class="kw">head</span>(mpg_new)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   manufacturer model
+##   &lt;chr&gt;        &lt;chr&gt;
+## 1 audi         a4   
+## 2 audi         a4   
+## 3 audi         a4   
+## 4 audi         a4   
+## 5 audi         a4   
+## 6 audi         a4</code></pre>
+<p><code>dplyr</code>などの<code>tidyverse</code>に含まれるパッケージのコマンドの多くは最初の引数でデータを指定します．データの指定はパイプ<code>%&gt;%</code>を使って省略できます．次の例では<code>select()</code>の最初の引数<code>mpg</code>がパイプ<code>%&gt;%</code>によって引き継がれています．</p>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="sub21_0617.html#cb198-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb198-2"><a href="sub21_0617.html#cb198-2"></a><span class="st">  </span><span class="kw">select</span>(manufacturer, model)</span>
+<span id="cb198-3"><a href="sub21_0617.html#cb198-3"></a></span>
+<span id="cb198-4"><a href="sub21_0617.html#cb198-4"></a><span class="co"># 確認</span></span>
+<span id="cb198-5"><a href="sub21_0617.html#cb198-5"></a><span class="kw">head</span>(mpg_new)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##   manufacturer model
+##   &lt;chr&gt;        &lt;chr&gt;
+## 1 audi         a4   
+## 2 audi         a4   
+## 3 audi         a4   
+## 4 audi         a4   
+## 5 audi         a4   
+## 6 audi         a4</code></pre>
+<p>列名ではなく列番号でも指定できます．</p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="sub21_0617.html#cb200-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb200-2"><a href="sub21_0617.html#cb200-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">3</span>)</span>
+<span id="cb200-3"><a href="sub21_0617.html#cb200-3"></a></span>
+<span id="cb200-4"><a href="sub21_0617.html#cb200-4"></a><span class="co"># 確認</span></span>
+<span id="cb200-5"><a href="sub21_0617.html#cb200-5"></a><span class="kw">head</span>(mpg_new)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 3
+##   manufacturer  year displ
+##   &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt;
+## 1 audi          1999   1.8
+## 2 audi          1999   1.8
+## 3 audi          2008   2  
+## 4 audi          2008   2  
+## 5 audi          1999   2.8
+## 6 audi          1999   2.8</code></pre>
+</div>
+<div id="filter-行観測の選択" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> filter(): 行(観測)の選択</h3>
+<p><code>filter()</code>は行を選択します．引数は何らかの条件です．</p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="sub21_0617.html#cb202-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb202-2"><a href="sub21_0617.html#cb202-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1999</span>)</span>
+<span id="cb202-3"><a href="sub21_0617.html#cb202-3"></a></span>
+<span id="cb202-4"><a href="sub21_0617.html#cb202-4"></a><span class="co"># 確認</span></span>
+<span id="cb202-5"><a href="sub21_0617.html#cb202-5"></a><span class="kw">head</span>(mpg_new, <span class="dt">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 11
+##    manufacturer model     displ  year   cyl trans  drv     cty   hwy fl   
+##    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;
+##  1 audi         a4          1.8  1999     4 auto(… f        18    29 p    
+##  2 audi         a4          1.8  1999     4 manua… f        21    29 p    
+##  3 audi         a4          2.8  1999     6 auto(… f        16    26 p    
+##  4 audi         a4          2.8  1999     6 manua… f        18    26 p    
+##  5 audi         a4 quatt…   1.8  1999     4 manua… 4        18    26 p    
+##  6 audi         a4 quatt…   1.8  1999     4 auto(… 4        16    25 p    
+##  7 audi         a4 quatt…   2.8  1999     6 auto(… 4        15    25 p    
+##  8 audi         a4 quatt…   2.8  1999     6 manua… 4        17    25 p    
+##  9 audi         a6 quatt…   2.8  1999     6 auto(… 4        15    24 p    
+## 10 chevrolet    c1500 su…   5.7  1999     8 auto(… r        13    17 r    
+## # … with 1 more variable: class &lt;chr&gt;</code></pre>
+<p>次のように複数のコマンドを組み合わせて使用することも可能です(それこそが<code>tidyverse</code>の醍醐味です)．</p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="sub21_0617.html#cb204-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb204-2"><a href="sub21_0617.html#cb204-2"></a><span class="st">  </span><span class="kw">filter</span>(year <span class="op">==</span><span class="st"> </span><span class="dv">1999</span>, manufacturer <span class="op">==</span><span class="st"> &#39;toyota&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb204-3"><a href="sub21_0617.html#cb204-3"></a><span class="st">  </span><span class="kw">select</span>(manufacturer, model, displ, year)</span>
+<span id="cb204-4"><a href="sub21_0617.html#cb204-4"></a></span>
+<span id="cb204-5"><a href="sub21_0617.html#cb204-5"></a><span class="co"># 確認</span></span>
+<span id="cb204-6"><a href="sub21_0617.html#cb204-6"></a><span class="kw">head</span>(mpg_new, <span class="dt">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 4
+##    manufacturer model        displ  year
+##    &lt;chr&gt;        &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt;
+##  1 toyota       4runner 4wd    2.7  1999
+##  2 toyota       4runner 4wd    2.7  1999
+##  3 toyota       4runner 4wd    3.4  1999
+##  4 toyota       4runner 4wd    3.4  1999
+##  5 toyota       camry          2.2  1999
+##  6 toyota       camry          2.2  1999
+##  7 toyota       camry          3    1999
+##  8 toyota       camry          3    1999
+##  9 toyota       camry solara   2.2  1999
+## 10 toyota       camry solara   2.2  1999</code></pre>
+</div>
+<div id="group_byungroup-グループ化解除" class="section level3">
+<h3><span class="header-section-number">8.3.3</span> group_by()/ungroup(): グループ化/解除</h3>
+<p><code>group_by()</code>はデータセットをグループ化するコマンドです．次の例では変数<code>year</code>ごとにグループ化しています．</p>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="sub21_0617.html#cb206-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb206-2"><a href="sub21_0617.html#cb206-2"></a><span class="st">  </span><span class="kw">group_by</span>(year)</span>
+<span id="cb206-3"><a href="sub21_0617.html#cb206-3"></a></span>
+<span id="cb206-4"><a href="sub21_0617.html#cb206-4"></a><span class="co"># 確認</span></span>
+<span id="cb206-5"><a href="sub21_0617.html#cb206-5"></a><span class="kw">head</span>(mpg_new, <span class="dt">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 11
+## # Groups:   year [2]
+##    manufacturer model    displ  year   cyl trans   drv     cty   hwy fl   
+##    &lt;chr&gt;        &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;
+##  1 audi         a4         1.8  1999     4 auto(l… f        18    29 p    
+##  2 audi         a4         1.8  1999     4 manual… f        21    29 p    
+##  3 audi         a4         2    2008     4 manual… f        20    31 p    
+##  4 audi         a4         2    2008     4 auto(a… f        21    30 p    
+##  5 audi         a4         2.8  1999     6 auto(l… f        16    26 p    
+##  6 audi         a4         2.8  1999     6 manual… f        18    26 p    
+##  7 audi         a4         3.1  2008     6 auto(a… f        18    27 p    
+##  8 audi         a4 quat…   1.8  1999     4 manual… 4        18    26 p    
+##  9 audi         a4 quat…   1.8  1999     4 auto(l… 4        16    25 p    
+## 10 audi         a4 quat…   2    2008     4 manual… 4        20    28 p    
+## # … with 1 more variable: class &lt;chr&gt;</code></pre>
+<p>左上の“Groups:”を見ると<code>year</code>によってちゃんとグループが作られているのが確認できます．でも実はグループ化しただけではデータは何も変わりません．グループ化は以降のセクションで紹介する<code>summarize()</code>や<code>mutate()</code>と組み合わせることで初めて効力を発揮します．<br />
+複数の変数でグループ化することもできます．次の例では企業×年度をグループとしています．</p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="sub21_0617.html#cb208-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb208-2"><a href="sub21_0617.html#cb208-2"></a><span class="st">  </span><span class="kw">group_by</span>(manufacturer, year)</span>
+<span id="cb208-3"><a href="sub21_0617.html#cb208-3"></a></span>
+<span id="cb208-4"><a href="sub21_0617.html#cb208-4"></a><span class="co"># 確認</span></span>
+<span id="cb208-5"><a href="sub21_0617.html#cb208-5"></a><span class="kw">head</span>(mpg_new, <span class="dt">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 11
+## # Groups:   manufacturer, year [2]
+##    manufacturer model    displ  year   cyl trans   drv     cty   hwy fl   
+##    &lt;chr&gt;        &lt;chr&gt;    &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;
+##  1 audi         a4         1.8  1999     4 auto(l… f        18    29 p    
+##  2 audi         a4         1.8  1999     4 manual… f        21    29 p    
+##  3 audi         a4         2    2008     4 manual… f        20    31 p    
+##  4 audi         a4         2    2008     4 auto(a… f        21    30 p    
+##  5 audi         a4         2.8  1999     6 auto(l… f        16    26 p    
+##  6 audi         a4         2.8  1999     6 manual… f        18    26 p    
+##  7 audi         a4         3.1  2008     6 auto(a… f        18    27 p    
+##  8 audi         a4 quat…   1.8  1999     4 manual… 4        18    26 p    
+##  9 audi         a4 quat…   1.8  1999     4 auto(l… 4        16    25 p    
+## 10 audi         a4 quat…   2    2008     4 manual… 4        20    28 p    
+## # … with 1 more variable: class &lt;chr&gt;</code></pre>
+<p>グループを解除したいときは<code>ungroup()</code>を指定します．先ほどのグループを解除してみましょう．</p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="sub21_0617.html#cb210-1"></a>mpg_new &lt;-<span class="st"> </span>mpg_new <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb210-2"><a href="sub21_0617.html#cb210-2"></a><span class="st">  </span><span class="kw">ungroup</span>()</span>
+<span id="cb210-3"><a href="sub21_0617.html#cb210-3"></a></span>
+<span id="cb210-4"><a href="sub21_0617.html#cb210-4"></a><span class="co"># 確認</span></span>
+<span id="cb210-5"><a href="sub21_0617.html#cb210-5"></a><span class="kw">head</span>(mpg_new)</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 11
+##   manufacturer model displ  year   cyl trans drv     cty   hwy fl    class
+##   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;
+## 1 audi         a4      1.8  1999     4 auto… f        18    29 p     comp…
+## 2 audi         a4      1.8  1999     4 manu… f        21    29 p     comp…
+## 3 audi         a4      2    2008     4 manu… f        20    31 p     comp…
+## 4 audi         a4      2    2008     4 auto… f        21    30 p     comp…
+## 5 audi         a4      2.8  1999     6 auto… f        16    26 p     comp…
+## 6 audi         a4      2.8  1999     6 manu… f        18    26 p     comp…</code></pre>
+<p>左上に“Groups:”という欄がないのでグループが解除されたことが確認できます．</p>
+</div>
+<div id="summarize-集計" class="section level3">
+<h3><span class="header-section-number">8.3.4</span> summarize(): 集計</h3>
+<p>先ほど説明した<code>group()</code>で指定したグループごとに変数を何らかの形で集計してみます．集計を指示するコマンドは<code>summarize()</code>です．引数は<code>新しい変数名 = 集計の内容</code>のようなイメージ．</p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="sub21_0617.html#cb212-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb212-2"><a href="sub21_0617.html#cb212-2"></a><span class="st">  </span><span class="kw">group_by</span>(manufacturer, year) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb212-3"><a href="sub21_0617.html#cb212-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">displ_mean =</span> <span class="kw">mean</span>(displ)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb212-4"><a href="sub21_0617.html#cb212-4"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;manufacturer&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb214"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb214-1"><a href="sub21_0617.html#cb214-1"></a><span class="co"># 確認</span></span>
+<span id="cb214-2"><a href="sub21_0617.html#cb214-2"></a><span class="kw">head</span>(mpg_new, <span class="dt">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##    manufacturer  year displ_mean
+##    &lt;chr&gt;        &lt;int&gt;      &lt;dbl&gt;
+##  1 audi          1999       2.36
+##  2 audi          2008       2.73
+##  3 chevrolet     1999       4.97
+##  4 chevrolet     2008       5.12
+##  5 dodge         1999       4.32
+##  6 dodge         2008       4.42
+##  7 ford          1999       4.45
+##  8 ford          2008       4.66
+##  9 honda         1999       1.6 
+## 10 honda         2008       1.85</code></pre>
+<p>上の例では各グループごとに変数<code>displ</code>を平均して集計しましたが，単純に観測数を数えたい場合は<code>n()</code>を使用します．</p>
+<div class="sourceCode" id="cb216"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb216-1"><a href="sub21_0617.html#cb216-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb216-2"><a href="sub21_0617.html#cb216-2"></a><span class="st">  </span><span class="kw">group_by</span>(manufacturer, year) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb216-3"><a href="sub21_0617.html#cb216-3"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb216-4"><a href="sub21_0617.html#cb216-4"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;manufacturer&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="sub21_0617.html#cb218-1"></a><span class="co"># 確認</span></span>
+<span id="cb218-2"><a href="sub21_0617.html#cb218-2"></a><span class="kw">head</span>(mpg_new, <span class="dt">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##    manufacturer  year count
+##    &lt;chr&gt;        &lt;int&gt; &lt;int&gt;
+##  1 audi          1999     9
+##  2 audi          2008     9
+##  3 chevrolet     1999     7
+##  4 chevrolet     2008    12
+##  5 dodge         1999    16
+##  6 dodge         2008    21
+##  7 ford          1999    15
+##  8 ford          2008    10
+##  9 honda         1999     5
+## 10 honda         2008     4</code></pre>
+</div>
+<div id="mutate-新しい変数作成" class="section level3">
+<h3><span class="header-section-number">8.3.5</span> mutate(): 新しい変数作成</h3>
+<p><code>mutate()</code>は新しい変数を作成するコマンドです．次の例は<code>cty</code>の自然対数を<code>ln_cty</code>という新しい変数として作成しています．</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="sub21_0617.html#cb220-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb220-2"><a href="sub21_0617.html#cb220-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">ln_cty =</span> <span class="kw">log</span>(cty))</span>
+<span id="cb220-3"><a href="sub21_0617.html#cb220-3"></a></span>
+<span id="cb220-4"><a href="sub21_0617.html#cb220-4"></a><span class="co"># 確認</span></span>
+<span id="cb220-5"><a href="sub21_0617.html#cb220-5"></a>mpg_new <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb220-6"><a href="sub21_0617.html#cb220-6"></a><span class="st">  </span><span class="kw">select</span>(cty, ln_cty) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb220-7"><a href="sub21_0617.html#cb220-7"></a><span class="st">  </span><span class="kw">head</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 6 x 2
+##     cty ln_cty
+##   &lt;int&gt;  &lt;dbl&gt;
+## 1    18   2.89
+## 2    21   3.04
+## 3    20   3.00
+## 4    21   3.04
+## 5    16   2.77
+## 6    18   2.89</code></pre>
+<p><code>mutate()</code>は先ほど説明した<code>group()</code>と組み合わせて使用すると便利なときがあります．</p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="sub21_0617.html#cb222-1"></a>mpg_new &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb222-2"><a href="sub21_0617.html#cb222-2"></a><span class="st">  </span><span class="kw">group_by</span>(manufacturer, year) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb222-3"><a href="sub21_0617.html#cb222-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">displ_mean =</span> <span class="kw">mean</span>(displ)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb222-4"><a href="sub21_0617.html#cb222-4"></a><span class="st">  </span><span class="kw">ungroup</span>()</span>
+<span id="cb222-5"><a href="sub21_0617.html#cb222-5"></a></span>
+<span id="cb222-6"><a href="sub21_0617.html#cb222-6"></a><span class="co"># 確認</span></span>
+<span id="cb222-7"><a href="sub21_0617.html#cb222-7"></a>mpg_new <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb222-8"><a href="sub21_0617.html#cb222-8"></a><span class="st">  </span><span class="kw">select</span>(manufacturer, model, year, displ_mean)</span></code></pre></div>
+<pre><code>## # A tibble: 234 x 4
+##    manufacturer model       year displ_mean
+##    &lt;chr&gt;        &lt;chr&gt;      &lt;int&gt;      &lt;dbl&gt;
+##  1 audi         a4          1999       2.36
+##  2 audi         a4          1999       2.36
+##  3 audi         a4          2008       2.73
+##  4 audi         a4          2008       2.73
+##  5 audi         a4          1999       2.36
+##  6 audi         a4          1999       2.36
+##  7 audi         a4          2008       2.73
+##  8 audi         a4 quattro  1999       2.36
+##  9 audi         a4 quattro  1999       2.36
+## 10 audi         a4 quattro  2008       2.73
+## # … with 224 more rows</code></pre>
+<p>グループ化したデータにおける<code>mutate()</code>と<code>summarize()</code>の違いは行数を確認すれば一目瞭然です．</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="sub21_0617.html#cb224-1"></a><span class="co"># summarize() ver</span></span>
+<span id="cb224-2"><a href="sub21_0617.html#cb224-2"></a>mpg_summarize &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb224-3"><a href="sub21_0617.html#cb224-3"></a><span class="st">  </span><span class="kw">group_by</span>(manufacturer, year) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb224-4"><a href="sub21_0617.html#cb224-4"></a><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">displ_mean =</span> <span class="kw">mean</span>(displ)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb224-5"><a href="sub21_0617.html#cb224-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<pre><code>## `summarise()` has grouped output by &#39;manufacturer&#39;. You can override using the `.groups` argument.</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="sub21_0617.html#cb226-1"></a><span class="co"># mutate() ver</span></span>
+<span id="cb226-2"><a href="sub21_0617.html#cb226-2"></a>mpg_mutate &lt;-<span class="st"> </span>mpg <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb226-3"><a href="sub21_0617.html#cb226-3"></a><span class="st">  </span><span class="kw">group_by</span>(manufacturer, year) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb226-4"><a href="sub21_0617.html#cb226-4"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">displ_mean =</span> <span class="kw">mean</span>(displ)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb226-5"><a href="sub21_0617.html#cb226-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span>
+<span id="cb226-6"><a href="sub21_0617.html#cb226-6"></a></span>
+<span id="cb226-7"><a href="sub21_0617.html#cb226-7"></a><span class="co"># 行数(観測数) を確認</span></span>
+<span id="cb226-8"><a href="sub21_0617.html#cb226-8"></a><span class="kw">nrow</span>(mpg) ; <span class="kw">nrow</span>(mpg_summarize) ; <span class="kw">nrow</span>(mpg_mutate)</span></code></pre></div>
+<pre><code>## [1] 234</code></pre>
+<pre><code>## [1] 30</code></pre>
+<pre><code>## [1] 234</code></pre>
+</div>
+<div id="pivot_wide型からlong型への変換-次回" class="section level3">
+<h3><span class="header-section-number">8.3.6</span> pivot_*()：wide型からlong型への変換
+次回</h3>
+</div>
+<div id="arrange行の並び替え" class="section level3">
+<h3><span class="header-section-number">8.3.7</span> arrange()：行の並び替え</h3>
+<p>次回</p>
+</div>
+<div id="distinct-重複行の操作" class="section level3">
+<h3><span class="header-section-number">8.3.8</span> distinct(): 重複行の操作</h3>
+<p>次回</p>
+</div>
+<div id="join-データフレームの結合-次回" class="section level3">
+<h3><span class="header-section-number">8.3.9</span> *_join(): データフレームの結合
+次回</h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="PANEL.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Others.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
