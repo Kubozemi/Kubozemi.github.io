@@ -1,4 +1,4 @@
-# データハンドリング
+# データハンドリング 
 
 ## 繰り返し・条件分岐
 
@@ -109,10 +109,10 @@ if(x %% 2 == 0){
 ```
 
 
-## dplyr入門
+# データハンドリング: dplyr入門
 
-### 準備
-#### dplyrとは?
+## 準備
+### dplyrとは?
 `dplyr`はデータフレームを効率良く処理するためのパッケージです．`tidyverse`の中に入っています．
 ```{r tidyverse_install, eval=FALSE}
 ## 新規パッケージをインストール ##
@@ -132,7 +132,7 @@ library(dplyr)
 library(tidyverse)
 ```
 
-#### dplyrの文法
+### dplyrの文法
 パイプ` %>% `を用いて操作途中の結果を次の操作へ渡すこと点が特徴的です．例えば，
 ```{r dplyr_howto, eval = FALSE}
 df %>% 
@@ -150,7 +150,7 @@ df_new <- df %>%
 
 上のコードでは「`df`に`コマンド 1`, `コマンド 2`, ...を実行したもの」を`df_new`に代入しています．
 
-### 使用データ
+## 使用データ
 ```{r df_ed, eval=FALSE, include=FALSE}
 df_ed <- data.frame(id = c("1", "2"), wage16 = c(3000, 2000), 
                     wage17 = c(3100, 2200), ed16 = c(16, 12), ed17 = c(16, 12), 
@@ -171,11 +171,11 @@ head(mpg)
 colnames(mpg)
 ```
 
-### dplyrを使ったデータフレーム処理
+## dplyrを使ったデータフレーム処理
 データフレームに様々な処理を行ってみましょう．
 
 
-#### select(): 列(変数)の選択
+### select(): 列(変数)の選択
 `select()`は列を選択する関数です．最初の引数はデータ，2番目以降の引数は列名です．
 ```{r select0}
 mpg_new <- select(mpg, manufacturer, model)
@@ -204,7 +204,7 @@ head(mpg_new)
 
 ```
 
-#### filter(): 行(観測)の選択
+### filter(): 行(観測)の選択
 `filter()`は行を選択します．引数は何らかの条件です．
 ```{r filter1}
 mpg_new <- mpg %>% 
@@ -225,7 +225,7 @@ head(mpg_new, n = 10)
 ```
 
 
-#### group_by()/ungroup(): グループ化/解除
+### group_by()/ungroup(): グループ化/解除
 `group_by()`はデータセットをグループ化するコマンドです．次の例では変数`year`ごとにグループ化しています．
 ```{r group1}
 mpg_new <- mpg %>% 
@@ -256,7 +256,7 @@ head(mpg_new)
 左上に"Groups:"という欄がないのでグループが解除されたことが確認できます．
 
 
-#### summarize(): 集計
+### summarize(): 集計
 先ほど説明した`group()`で指定したグループごとに変数を何らかの形で集計してみます．集計を指示するコマンドは`summarize()`です．引数は`新しい変数名 = 集計の内容`のようなイメージ．
 ```{r summarize1}
 mpg_new <- mpg %>% 
@@ -278,7 +278,7 @@ mpg_new <- mpg %>%
 head(mpg_new, n = 10)
 ```
 
-#### mutate(): 新しい変数作成
+### mutate(): 新しい変数作成
 `mutate()`は新しい変数を作成するコマンドです．次の例は`cty`の自然対数を`ln_cty`という新しい変数として作成しています．
 ```{r mutate1}
 mpg_new <- mpg %>% 
@@ -321,16 +321,16 @@ nrow(mpg) ; nrow(mpg_summarize) ; nrow(mpg_mutate)
 
 ```
 
-#### pivot_*()：wide型からlong型への変換
+### pivot_*()：wide型からlong型への変換
 次回
 
-#### arrange()：行の並び替え
+### arrange()：行の並び替え
 次回
 
-#### distinct(): 重複行の操作
+### distinct(): 重複行の操作
 次回
 
-#### *_join(): データフレームの結合
+### *_join(): データフレームの結合
 次回
 
 

@@ -69,7 +69,7 @@ vif統計量
 繰り返し構文
 tips-空箱をつくる
 条件分岐
-dplyr入門
+データハンドリング-dplyr入門
 準備-1
 dplyrとは
 dplyrの文法
@@ -86,7 +86,7 @@ distinct-重複行の操作
 web-スクレイピング
 地理情報講座
 パネルデータ分析-1
-dplyr入門-1
+dplyr入門
 ggplot2-入門
 stringr入門
 lubridate
